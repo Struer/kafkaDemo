@@ -1,4 +1,4 @@
-package com.kafka;
+package com.kafka.producer;
 
 import java.util.Properties;
 
@@ -30,7 +30,7 @@ public class PartitionerProducer {
 		// value序列化
 		props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 		// 自定义分区
-		props.put("partitioner.class", "com.kafka.CustomPartitioner");
+		props.put("partitioner.class", "com.kafka.producer.CustomPartitioner");
 
 		Producer<String, String> producer = new KafkaProducer<String, String>(props);
 		for (int i = 0; i < 50; i++) {
